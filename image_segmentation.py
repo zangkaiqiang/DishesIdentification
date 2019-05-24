@@ -12,6 +12,7 @@ class Segmentation():
         '''
 
     def add_img(self,mat):
+        # mat = cv2.resize(mat,(320,240))
         self.img_rgb = mat
         self.img = mat[:,:,0]
 
