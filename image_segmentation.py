@@ -3,15 +3,20 @@ import math
 import numpy as np
 import pickle
 
+model_path = 'model/di_model.pkl'
+
 class Segmentation():
-    def __init__(self,mat):
+    def __init__(self):
         '''
 
         '''
+
+    def add_img(self,mat):
         self.img_rgb = mat
         self.img = mat[:,:,0]
-        self.clf = pickle.load(open('model/di_model.pkl','rb'))
 
+    def load_model(self):
+        self.clf = pickle.load(open(model_path, 'rb'))
 
     def read_img(self,filepath):
         img = cv2.imread(filepath,0)

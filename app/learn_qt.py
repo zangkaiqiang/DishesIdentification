@@ -45,12 +45,15 @@ class Thread(QThread):
         times = 0
         # record
         last_result = []
+        seg = Segmentation()
+        seg.load_model()
         while True:
             ret, frame = cap.read()
 
             if ret:
 
-                seg = Segmentation(mat=frame)
+                seg = Segmentation()
+                seg.add_img(frame)
                 seg.hough_circles()
 
                 if seg.check_circles():
@@ -89,7 +92,7 @@ class Thread(QThread):
                 p = convertToQtFormat.scaled(width, height)
                 self.app.label.setGeometry(QRect(0, 0, self.app.ui.frame.width(), self.app.ui.frame.height()))
                 self.changePixmap.emit(p)
-                time.sleep(0.3)
+                time.sleep(0.1)
 
 class AppWindow(QMainWindow):
     def __init__(self):

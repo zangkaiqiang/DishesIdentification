@@ -4,3 +4,5 @@ __pycache__
 venv/
 model/
 data/
+logger.log
+.vscode
