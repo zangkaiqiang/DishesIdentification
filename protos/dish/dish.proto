@@ -1,0 +1,53 @@
+syntax = "proto3";
+package dish;
+message Request {
+}
+
+message Response {
+    string name=1;
+}
+
+message Array{
+    repeated int32 array=1;
+}
+
+message Img{
+    repeated Array arrays = 1;
+}
+message Img_rgb{
+    repeated Img imgs=1;
+}
+
+message Circle{
+    float x=1;
+    float y=2;
+    float r=3;
+}
+
+message Circles{
+    repeated Circle circle =1 ;
+}
+
+message Color{
+    int32 r=1;
+    int32 g=2;
+    int32 b=3;
+}
+
+message Colors{
+    repeated Color colors=1;
+}
+
+message Price{
+    float price=1;
+}
+
+service Dish {
+    rpc GetCircles(Img_rgb) returns (Circles) {}
+    rpc GetImg(Img_rgb) returns (Img_rgb) {}
+    rpc GetColors(Img_rgb) returns (Colors) {}
+    rpc GetPrice(Img_rgb) returns (Price) {}
+}
+
+
+
