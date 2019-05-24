@@ -51,8 +51,6 @@ class Thread(QThread):
             ret, frame = cap.read()
 
             if ret:
-
-                seg = Segmentation()
                 seg.add_img(frame)
                 seg.hough_circles()
 
