@@ -1,4 +1,4 @@
-# 菜品识别
+# 食品识别
 opencv+qt5+RandomForestClassifier
 
 ### 目标检测
